@@ -1,0 +1,110 @@
+:root{
+  color-scheme:light; padding-top:env(safe-area-inset-top,0px);
+  --blush:#FFE6EE; --petal:#F9BCD0; --rose:#E98AAB; --berry:#B01E55; --wine:#4A1530; --gold:#C99A4B; --peach:#FFC4BC; --bubble:#FF7FA8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--blush); color:var(--wine); font-family:"Amiri",serif; font-size:1.3rem; line-height:2;
+  background-image:radial-gradient(48rem 30rem at 85% 0, rgba(249,188,208,.8), transparent 70%), radial-gradient(40rem 26rem at 0 60%, rgba(249,188,208,.45), transparent 70%);
+  background-repeat:no-repeat}
+body.locked{overflow:hidden}
+h1,h2,h3{font-family:"Aref Ruqaa",serif; font-weight:700; margin:0; line-height:1.45}
+.wrap{max-width:40rem; margin:0 auto; padding:0 1.4rem}
+:focus-visible{outline:3px solid var(--berry); outline-offset:3px}
+button{font-family:inherit}
+
+/* ---------- الظرف الافتتاحي ---------- */
+#intro{position:fixed; inset:0; z-index:40; display:grid; place-content:center; justify-items:center; gap:2rem; background:var(--petal);
+  background-image:radial-gradient(30rem 24rem at 50% 45%, #FFD3E1, transparent 75%); transition:opacity .6s}
+#intro.done{opacity:0}
+.env{position:relative; width:min(21rem,84vw); aspect-ratio:4/3; background:var(--rose); border-radius:.6rem; box-shadow:0 1.2rem 2.5rem rgba(74,21,48,.25)}
+.env>*{position:absolute}
+.paper{inset:.7rem .9rem; background:#fff; border-radius:.3rem; z-index:1; display:grid; place-content:center; text-align:center; transition:transform .8s ease .55s; padding:.5rem}
+.paper b{font-family:"Aref Ruqaa",serif; font-size:1.6rem; color:var(--berry); line-height:1.5}
+.paper span{font-size:1.1rem}
+.front{inset:0; z-index:2; background:#F4A3BF; border-radius:.6rem; clip-path:polygon(0 28%,50% 66%,100% 28%,100% 100%,0 100%)}
+.flap{inset:0; z-index:3; background:#F8B4CA; border-radius:.6rem; clip-path:polygon(0 0,100% 0,100% 28%,50% 66%,0 28%); transform-origin:50% 0; transition:transform .7s ease, z-index 0s .35s}
+.seal{left:50%; top:53%; z-index:4; translate:-50% -50%; width:3.6rem; height:3.6rem; border:0; border-radius:50%; background:var(--berry); color:#fff; font-size:1.7rem; cursor:pointer; box-shadow:0 .3rem .8rem rgba(74,21,48,.35); animation:beat 1.6s ease-in-out infinite; transition:opacity .3s}
+.tap{margin:0; color:var(--wine); font-size:1.2rem}
+.env.open .flap{transform:rotateX(180deg); z-index:0}
+.env.open .paper{transform:translateY(-62%)}
+.env.open .seal{opacity:0; animation:none; pointer-events:none}
+@keyframes beat{50%{scale:1.12}}
+
+/* ---------- الصفحة ---------- */
+.hero{min-height:100svh; display:flex; flex-direction:column; justify-content:center; text-align:center; padding:4rem 0 3rem}
+.hero .lead{margin:0; color:var(--berry); font-size:1.5rem}
+.hero h1{font-size:clamp(3.6rem,16vw,7rem); margin:.1rem 0 .4rem; color:var(--berry)}
+
+.bokeh{position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none}
+.bokeh i{position:absolute; border-radius:50%; filter:blur(36px); opacity:.55; animation:drift 22s ease-in-out infinite alternate}
+.bokeh i:nth-child(1){width:15rem; height:15rem; background:var(--bubble); top:6%; right:-4rem}
+.bokeh i:nth-child(2){width:12rem; height:12rem; background:var(--peach); top:42%; left:-3rem; animation-duration:28s}
+.bokeh i:nth-child(3){width:17rem; height:17rem; background:var(--petal); bottom:4%; right:10%; animation-duration:25s}
+@keyframes drift{to{transform:translate(-2.5rem,3rem) scale(1.18)}}
+
+
+.wish-sec{text-align:center}
+.cake{display:block; margin:0 auto; padding:0; border:0; background:none; width:min(15rem,70vw); cursor:pointer}
+.cake:disabled{cursor:default}
+.cake svg{display:block; width:100%; height:auto; overflow:visible}
+.flame{transform-origin:120px 50px; animation:flicker 1.3s ease-in-out infinite alternate}
+@keyframes flicker{from{transform:scale(1) rotate(-2deg)}to{transform:scale(.92,1.08) rotate(2deg)}}
+#smoke{opacity:0}
+.cake.out .flame{animation:none; opacity:0; transition:opacity .25s}
+.cake.out #smoke{animation:smoke 1.8s ease-out forwards}
+@keyframes smoke{0%{opacity:.9; transform:translateY(0)}100%{opacity:0; transform:translateY(-22px)}}
+.wish{min-height:7rem; margin:1.6rem auto 0; max-width:27rem; font-family:"Aref Ruqaa",serif; font-size:1.7rem; line-height:2; color:var(--berry); white-space:pre-line}
+.wish.show{animation:rise-in .8s ease-out}
+.wave{display:block; width:100%; height:4.2rem; margin-bottom:-1px}
+.wave path{fill:var(--wine)}
+.pop{position:fixed; z-index:60; pointer-events:none; color:var(--berry); font-size:1.4rem; line-height:1}
+.hero .sub{margin:0 auto 2.2rem; max-width:27rem}
+.counter{display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem .5rem; max-width:29rem; margin:0 auto; padding:1.3rem .8rem;
+  background:rgba(255,255,255,.62); border-radius:1.6rem; border:1px solid rgba(176,30,85,.18)}
+.counter b{display:block; font-family:"Aref Ruqaa",serif; font-size:2.4rem; line-height:1.3; color:var(--berry); font-variant-numeric:tabular-nums}
+.counter span{font-size:1.1rem}
+.hint{margin:2rem 0 0; opacity:.8}
+.verse{margin:2.2rem auto 0; max-width:26rem; font-family:"Aref Ruqaa",serif; font-size:1.55rem; line-height:2.1; color:var(--berry)}
+.verse span{display:block}
+
+section{padding:4rem 0}
+h2.title{font-size:2.5rem; color:var(--berry)}
+p.intro{margin:.2rem 0 2.6rem}
+
+.timeline{list-style:none; margin:0; padding:0 2rem 0 0; border-right:2px dashed var(--rose)}
+.timeline li{position:relative; padding:0 1.4rem 2.8rem 0}
+.timeline li::before{content:"♥"; position:absolute; right:-.78rem; top:.2rem; width:1.5rem; height:1.5rem; display:grid; place-items:center; background:#fff; border-radius:50%; box-shadow:0 0 0 3px var(--petal); color:var(--berry); font-size:.9rem; line-height:1}
+.timeline time{color:var(--gold); font-weight:700; font-size:1.1rem}
+.timeline h3{font-size:1.85rem; color:var(--wine)}
+.timeline p{margin:.1rem 0 0; white-space:pre-line}
+.timeline figure{margin:1.1rem 0 0; padding:.6rem .6rem 1.7rem; background:#fff; border-radius:.3rem; box-shadow:0 .6rem 1.4rem rgba(74,21,48,.18); rotate:-1.6deg; max-width:23rem}
+.timeline li:nth-child(even) figure{rotate:1.8deg}
+.timeline img{display:block; width:100%; aspect-ratio:4/3; object-fit:cover}
+
+.finale{background:var(--wine); color:var(--blush); text-align:center; padding:3rem 0 6rem}
+.cta{font-size:1.4rem; font-weight:700; padding:.8rem 2.4rem; border:0; border-radius:99px; background:var(--petal); color:var(--wine); cursor:pointer}
+.cta:hover{background:#fff}
+#final{display:none; margin-top:2.4rem}
+#final.show{display:block; animation:rise-in .8s ease-out}
+#final h3{font-size:3rem; color:var(--petal)}
+#final p{margin:.4rem auto 0; max-width:28rem; white-space:pre-line}
+@keyframes rise-in{from{opacity:0; transform:translateY(1rem)}to{opacity:1; transform:none}}
+footer{padding:1.6rem 0 calc(1.6rem + env(safe-area-inset-bottom,0px)); text-align:center; background:var(--wine); color:var(--rose); font-size:1.05rem}
+
+.petal{position:fixed; top:-3rem; z-index:30; pointer-events:none; animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--rot)); opacity:.2}}
+
+#gate{position:fixed; inset:0; z-index:50; display:none; place-items:center; background:var(--blush); text-align:center; padding:1.5rem}
+#gate.on{display:grid}
+#gate input{font:inherit; text-align:center; padding:.5rem 1rem; border-radius:.8rem; border:2px solid var(--rose); background:#fff; color:var(--wine); width:min(18rem,100%); margin:1rem 0 .4rem}
+#gate .err{color:var(--berry); min-height:2rem; margin:0}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .seal,.flame{animation:none}
+  .wish.show{animation:none}
+  .paper,.flap,#intro{transition-duration:.01s; transition-delay:0s}
+  #final.show{animation:none}
+  .petal,.bokeh i{display:none}
+}

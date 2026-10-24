@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>هدية عيد ميلادك</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<div id="gate" role="dialog" aria-label="كلمة السر">
+  <form onsubmit="return false">
+    <h2 style="font-size:2.2rem;color:var(--berry)">هذه الهدية لكِ وحدك</h2>
+    <p id="gateHint" style="margin:0"></p>
+    <input id="gateInput" type="password" autocomplete="off" aria-label="كلمة السر">
+    <p class="err" id="gateErr" role="alert"></p>
+    <button class="cta" id="gateBtn" type="button">افتحي</button>
+  </form>
+</div>
+
+<div id="intro">
+  <div class="env" id="env">
+    <div class="paper"><b id="envTo"></b><span>عيد ميلاد سعيد</span></div>
+    <div class="front"></div>
+    <div class="flap"></div>
+    <button class="seal" id="openBtn" type="button" aria-label="افتحي الهدية">♥</button>
+  </div>
+  <p class="tap">اضغطي على القلب لتفتحي هديتك</p>
+</div>
+
+<div class="bokeh" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <p class="lead" id="lead"></p>
+      <h1 id="name"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="counter">
+        <div><b id="c-y">٠</b><span>سنة</span></div>
+        <div><b id="c-m">٠</b><span>شهر</span></div>
+        <div><b id="c-d">٠</b><span>يوم</span></div>
+        <div><b id="c-h">٠</b><span>ساعة</span></div>
+        <div><b id="c-i">٠</b><span>دقيقة</span></div>
+        <div><b id="c-s">٠</b><span>ثانية</span></div>
+      </div>
+      <p class="hint">هذا عمر قصتنا حتى هذه اللحظة، وما زالت تكبر.</p>
+      <p class="verse"><span>فاطمة:</span><span>أنتِ التي تجعلين الدار مزهرةً</span><span>وأنتِ من تمنحين الورد ألوانا</span></p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2 class="title">رحلتنا</h2>
+      <p class="intro">محطات صنعت حكايتنا.</p>
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+  </section>
+
+  <section class="wish-sec">
+    <div class="wrap">
+      <h2 class="title">تمنّي أمنية</h2>
+      <p class="intro" id="wishIntro">أغمضي عينيكِ وتمنّي، ثم اضغطي على الشمعة لتطفئيها.</p>
+      <button class="cake" id="cakeBtn" type="button" aria-label="أطفئي الشمعة">
+        <svg viewBox="0 0 240 230" aria-hidden="true">
+          <ellipse cx="120" cy="212" rx="108" ry="12" fill="#E98AAB"/>
+          <rect x="30" y="140" width="180" height="70" rx="14" fill="#F4A3BF"/>
+          <rect x="30" y="134" width="180" height="14" rx="7" fill="#fff"/>
+          <rect x="44" y="140" width="14" height="24" rx="7" fill="#fff"/>
+          <rect x="86" y="140" width="14" height="18" rx="7" fill="#fff"/>
+          <rect x="132" y="140" width="14" height="26" rx="7" fill="#fff"/>
+          <rect x="184" y="140" width="14" height="20" rx="7" fill="#fff"/>
+          <circle cx="66" cy="182" r="5" fill="#B01E55"/><circle cx="120" cy="190" r="5" fill="#B01E55"/><circle cx="174" cy="182" r="5" fill="#B01E55"/>
+          <rect x="60" y="92" width="120" height="48" rx="12" fill="#F9BCD0"/>
+          <rect x="60" y="86" width="120" height="12" rx="6" fill="#fff"/>
+          <rect x="78" y="92" width="12" height="18" rx="6" fill="#fff"/>
+          <rect x="114" y="92" width="12" height="24" rx="6" fill="#fff"/>
+          <rect x="152" y="92" width="12" height="16" rx="6" fill="#fff"/>
+          <circle cx="80" cy="84" r="7" fill="#B01E55"/><circle cx="98" cy="86" r="7" fill="#FF7FA8"/>
+          <circle cx="142" cy="86" r="7" fill="#FF7FA8"/><circle cx="160" cy="84" r="7" fill="#B01E55"/>
+          <rect x="114" y="52" width="12" height="36" rx="3" fill="#FFC4BC"/>
+          <rect x="114" y="62" width="12" height="4" fill="#C99A4B"/><rect x="114" y="74" width="12" height="4" fill="#C99A4B"/>
+          <path d="M120 52 V46" stroke="#4A1530" stroke-width="2" stroke-linecap="round"/>
+          <g class="flame" id="flame">
+            <path d="M120 22 C129 33 133 42 120 50 C107 42 111 33 120 22Z" fill="#FFC857"/>
+            <path d="M120 33 C124 39 124 44 120 48 C116 44 116 39 120 33Z" fill="#FF7FA8"/>
+          </g>
+          <path id="smoke" d="M120 44 q-8 -10 0 -18 q8 -8 0 -18" stroke="#E98AAB" fill="none" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <p class="wish" id="wish" aria-live="polite"></p>
+    </div>
+  </section>
+  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C240 90 480 0 720 40 S1200 80 1440 30 V80 H0Z"/></svg>
+  <section class="finale">
+    <div class="wrap">
+      <button class="cta" id="finalBtn" type="button">وأخيراً</button>
+      <div id="final" aria-live="polite">
+        <h3 id="finalTitle"></h3>
+        <p id="finalText"></p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>صُنع بحب، وبيد محبك وحبيبك مصطفى الرضوان</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
